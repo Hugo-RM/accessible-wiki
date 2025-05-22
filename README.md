@@ -19,27 +19,27 @@ To run program:
    flask --app main.py --debug run
 
 Example process:
-   # Open PowerShell or terminal
+   ### Open PowerShell or terminal
    ```.sh
    PS C:\Users\YourUsername>
    ```
    
-   # (Optional) Open Virtual Environment with dependencies installed
+   ### (Optional) Open Virtual Environment with dependencies installed
    ```.sh
    ./venv_name/Scripts/Activate.ps1
    ```
    
-   # Navigate to your project directory
+   ### Navigate to your project directory
    ```.sh
    PS C:\Users\YourUsername> cd "C:\Users\YourUsername\Documents\accessible-wiki"
    ```
    
-   # Run the Flask application
+   ### Run the Flask application
    ```.sh
    (yourenv) PS C:\Users\YourUsername\Documents\accessible-wiki> flask --app main.py --debug run
    ```
    
-   # Output:
+   ### Output:
    ```.sh
       * Serving Flask app 'main.py'
       * Debug mode: on
