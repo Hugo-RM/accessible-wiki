@@ -1,0 +1,38 @@
+<!-- A smaller page that gives the information on the section and the audio. -->
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Wiki section info page </title>
+    {{ bootstrap.load_css() }}
+</head>
+<body class="container text-center mt-5" style="background-color: bisque;">
+    <h1 class="card-body bg-light text-dark rounded card shadow-lg p-3"> {{title}} </h1>
+
+    <div class="card shadow-lg p-3">
+        <div class="card-body bg-light text-dark rounded">
+            <p class="fs-5 text"> {{summary}} </p>
+            <br>
+            
+            <!-- An audio file that uses the title and section written in the main code to find the audio file created. -->
+            <audio controls autoplay>
+                <source src="../static/{{title}}.mp3" type="audio/mpeg">
+            </audio>
+    
+            <br>
+
+            <!-- A form that takes the user back to the wikipage of the initial topic. -->
+            <form method="POST" action="{{ url_for('section') }}">
+                <input type="hidden" name="topic" value="{{ topic }}">
+                <div class="container text-center mt-5">
+                <h3> Go back to {{topic}}? </h3>
+                <button type="submit"> Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

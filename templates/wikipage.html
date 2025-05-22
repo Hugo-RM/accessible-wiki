@@ -1,0 +1,50 @@
+<!-- A simple webpage that shows the initial informaiton on the topic. -->
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Wiki info page </title>
+    {{ bootstrap.load_css() }}
+</head>
+<body class="container text-center mt-5" style="background-color: bisque;">
+    <h1 class="card-body bg-light text-dark rounded card shadow-lg p-3"> {{topic}} </h1>
+
+    <div class="card shadow-lg p-3">
+        <div class="card-body bg-light text-dark rounded">
+            <p class="fs-5 text"> {{summary}} </p>
+            <br>
+            
+            <!-- An audio autoplay block that uses the topic to play the audio file created through the text-to-speech. -->
+            <audio controls autoplay>
+                <source src="../static/{{topic}}.mp3" type="audio/mpeg">
+            </audio>
+    
+        </div>
+        <div class="card-body bg-light text-dark rounded">
+            <h4> Select Section Below </h4>
+            <!-- A form selection that takes the user to the section page by giving a variety of section options based on the topic. -->
+            <form method="POST" action="{{ url_for('wikipage') }}">
+                <div class="container text-center mt-5">
+                <select name="section" id="section">
+                    {% for s in sections %}
+                        <option value="{{s.title}}"> {{s.title}} </option>
+                    {% endfor %}
+                </select>
+                <input type="hidden" name="topic" value="{{ topic }}">
+                <button type="submit"> Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- A return button to take the user back to the index page. -->
+        <div class="card-body bg-light text-dark rounded">
+            <h4> Return to index? </h4>
+            <form method="POST" action="{{ url_for('home') }}">
+                <button type="submit"> Submit</button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

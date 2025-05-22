@@ -1,0 +1,46 @@
+<!-- The initial index page that allows the user to either use the microphone or type the topic. -->
+
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <!-- Loads all the primary information to be used by the header -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Proj Main Page Index</title>
+      {{ bootstrap.load_css() }}
+      <link href="/css/style.css" rel="stylesheet">
+  </head>
+  <body class="container text-center mt-5">
+      <h1> Wikipedia Text to Speech </h1>
+      Enter a wikipedia page below
+
+      <!-- A post form to take the user to the wikipage based on the information written. -->
+      <form method="POST" action="/">
+        <div class="container text-center mt-5">
+          <div>
+            <input type="text" name="topic" placeholder="Enter wiki topic here!">
+          </div> <br>
+          <button type="submit"> Submit</button>
+        </div>
+      </form>
+      <br>
+      <!-- A post form to use the microphone option to take you to the wikipage and use the speech-to-text. Worked on by Hugo -->
+      <form method="POST" action="/mic">
+        <button type="submit">Microphone</button>
+      </form>
+  </body>
+  <script>
+
+    // A function in order to check the recognized text to tkae you to the proper wikipage. Worked on by Hugo
+    function checkRecognizedText()
+    {
+    if (window.location.pathname !== '/') return;
+    fetch('/check_for_text')
+        .then(response => response.json())
+        .then(data => data.found && (window.location.href = `/wikipage?topic=${data.topic}`))
+    }
+    
+    setInterval(checkRecognizedText, 2000);
+  </script>
+
+</html>
