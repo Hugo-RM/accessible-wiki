@@ -20,24 +20,34 @@ To run program:
 
 Example process:
    # Open PowerShell or terminal
-
+   ```.sh
+   PS C:\Users\YourUsername>
+   ```
+   
    # (Optional) Open Virtual Environment with dependencies installed
+   ```.sh
    ./venv_name/Scripts/Activate.ps1
-
+   ```
+   
    # Navigate to your project directory
+   ```.sh
    PS C:\Users\YourUsername> cd "C:\Users\YourUsername\Documents\accessible-wiki"
+   ```
    
    # Run the Flask application
-   (yourenv) PS C:\Path\To\CST205FinalRepository> flask --app main.py --debug run
-
+   ```.sh
+   (yourenv) PS C:\Users\YourUsername\Documents\accessible-wiki> flask --app main.py --debug run
+   ```
+   
    # Output:
+   ```.sh
       * Serving Flask app 'main.py'
       * Debug mode: on
    WARNING: This is a development server. Do not use it in a production deployment.
       * Running on http://127.0.0.1:5000
    # -> Copy this address into your web browser
    Press CTRL+C to quit
-
+   ```
 
 Future Work:
 - Could add a feature to delete audio files in order to save memory space
